@@ -1,0 +1,15 @@
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Node
+node_modules/
+
+# Build artifacts
+*.zip
+
+# OS
+.DS_Store
+

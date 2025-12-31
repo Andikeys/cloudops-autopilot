@@ -1,0 +1,12 @@
+{
+  "name": "incident-detector",
+  "version": "1.0.0",
+  "description": "AI-powered incident detection for AWS services",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.1400.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

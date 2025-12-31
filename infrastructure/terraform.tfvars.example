@@ -1,0 +1,12 @@
+# Copy this file to terraform.tfvars and customize the values
+
+aws_region         = "us-east-1"
+project_name       = "cloudops-autopilot"
+notification_email = "your-email@example.com"
+
+tags = {
+  Project     = "CloudOps Autopilot"
+  Environment = "production"
+  ManagedBy   = "terraform"
+  Owner       = "your-name"
+}

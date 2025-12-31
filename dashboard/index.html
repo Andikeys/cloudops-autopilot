@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudOps Autopilot - Incident Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-cloud"></i> CloudOps Autopilot</h1>
+                <div class="system-status" id="systemStatus">
+                    <span class="status-indicator healthy" id="statusIndicator"></span>
+                    <span id="statusText">System Healthy</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="totalIncidents">0</div>
+                        <div class="metric-label">Total Incidents (24h)</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon critical"><i class="fas fa-fire"></i></div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="criticalIncidents">0</div>
+                        <div class="metric-label">Critical</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon high"><i class="fas fa-exclamation"></i></div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="highIncidents">0</div>
+                        <div class="metric-label">High Priority</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <div class="metric-icon"><i class="fas fa-clock"></i></div>
+                    <div class="metric-content">
+                        <div class="metric-value" id="avgResolutionTime">0</div>
+                        <div class="metric-label">Avg Resolution (min)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2><i class="fas fa-list"></i> Recent Incidents</h2>
+                        <div class="panel-controls">
+                            <select id="statusFilter">
+                                <option value="">All Status</option>
+                                <option value="OPEN">Open</option>
+                                <option value="RESOLVED">Resolved</option>
+                            </select>
+                            <select id="severityFilter">
+                                <option value="">All Severity</option>
+                                <option value="CRITICAL">Critical</option>
+                                <option value="HIGH">High</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="LOW">Low</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="incidents-list" id="incidentsList">
+                        <div class="loading">Loading incidents...</div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h2><i class="fas fa-chart-bar"></i> Incidents by Source</h2>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="sourceChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-header">
+                    <h2><i class="fas fa-chart-line"></i> Incident Timeline (24h)</h2>
+                </div>
+                <div class="chart-container">
+                    <canvas id="timelineChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Incident Detail Modal -->
+    <div class="modal" id="incidentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Incident Details</h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Incident details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

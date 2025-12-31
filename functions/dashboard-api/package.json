@@ -1,0 +1,12 @@
+{
+  "name": "dashboard-api",
+  "version": "1.0.0",
+  "description": "API for CloudOps Autopilot dashboard",
+  "main": "index.js",
+  "dependencies": {
+    "aws-sdk": "^2.1400.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
